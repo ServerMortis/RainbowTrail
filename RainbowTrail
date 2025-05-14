@@ -1,0 +1,110 @@
+local plr = game.Players.LocalPlayer.Character
+local ios = game:GetService("UserInputService")
+local st = "stop"
+local int = "stop"
+--Effects
+local tra = Instance.new("Trail", plr)
+		tra.Lifetime = 0.8
+		tra.Color = ColorSequence.new(Color3.fromRGB(255,0,0)) --0,0,0 Это RGB
+		local att1 = Instance.new("Attachment", plr["Right Leg"])
+		local att2 = Instance.new("Attachment", plr["Left Leg"])
+		att1.Name = "TE"
+		att2.Name = "TEE"
+
+		tra.Attachment0 = att1
+		tra.Attachment1 = att2
+
+		local fi1 = Instance.new("Fire", plr.HumanoidRootPart)
+		fi1.Name = "Firer"
+		fi1.Color = Color3.fromRGB(255,0,0)
+		fi1.Size = 30
+		fi1.TimeScale = 40
+		fi1.Heat = 1
+
+ios.InputBegan:Connect(function(input, notinput)
+if not notinput then
+	if input.KeyCode == Enum.KeyCode.T then
+		if st == "stop" then 
+			st = "start"
+		else
+			plr.Humanoid.WalkSpeed = 16
+			st = "stop"
+		end
+	end
+end
+end)
+
+ios.InputBegan:Connect(function(input, notinput)
+if not notinput then
+	if input.KeyCode == Enum.KeyCode.Y then
+		while wait(0) do
+		if st == "start" then
+		plr.Humanoid.WalkSpeed = 340
+		else
+		plr.Humanoid.WalkSpeed = 16
+		break
+		end
+		end
+	end
+end
+end)
+
+ios.InputBegan:Connect(function(input, notinput)
+if not notinput then
+	if input.KeyCode == Enum.KeyCode.N then
+		if fi1.Enabled == true then
+			fi1.Enabled = false
+		else
+			fi1.Enabled = true
+		end
+	end
+end
+end)
+
+ios.InputBegan:Connect(function(input, notinput)
+if not notinput then
+	if input.KeyCode == Enum.KeyCode.H then
+		if int == "stop" then
+			int = "start"
+		else
+			int = "stop"
+		end
+	end
+end
+end)
+
+ios.InputBegan:Connect(function(input, notinput)
+if not notinput then
+	if input.KeyCode == Enum.KeyCode.J then
+		while wait(0) do
+		if int == "start" then
+			fi1.Color = Color3.fromRGB(255,0,0)
+			tra.Color = ColorSequence.new(Color3.fromRGB(255,0,0))
+			wait(0.2)
+			fi1.Color = Color3.fromRGB(212,77,0)
+			tra.Color = ColorSequence.new(Color3.fromRGB(212,77,0))
+			wait(0.2)
+			fi1.Color = Color3.fromRGB(255,233,0)
+			tra.Color = ColorSequence.new(Color3.fromRGB(255,233,0))
+			wait(0.2)
+			fi1.Color = Color3.fromRGB(0,233,0)
+			tra.Color = ColorSequence.new(Color3.fromRGB(0,233,0))
+			wait(0.2)
+			fi1.Color = Color3.fromRGB(123,255,0)
+			tra.Color = ColorSequence.new(Color3.fromRGB(123,255,0))
+			wait(0.2)
+			fi1.Color = Color3.fromRGB(0,255,0)
+			tra.Color = ColorSequence.new(Color3.fromRGB(0,255,0))
+			wait(0.2)
+			fi1.Color = Color3.fromRGB(117,0,234)
+			tra.Color = ColorSequence.new(Color3.fromRGB(117,0,234))
+			wait(0.2)
+		else
+			fi1.Color = Color3.fromRGB(255,0,0)
+			tra.Color = ColorSequence.new(Color3.fromRGB(255,0,0))
+			break
+		end
+		end
+	end
+end
+end)
